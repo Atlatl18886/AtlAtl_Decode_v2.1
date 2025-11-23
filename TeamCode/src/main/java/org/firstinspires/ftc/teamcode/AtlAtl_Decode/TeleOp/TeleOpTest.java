@@ -1,12 +1,14 @@
 package org.firstinspires.ftc.teamcode.AtlAtl_Decode.TeleOp;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 
+@TeleOp
 public class TeleOpTest extends OpMode {
     private DcMotorEx leftFront, rightFront, leftBack, rightBack;
-    private DcMotorEx intake, topIntake;
+    private DcMotorEx intake;
     private DcMotorEx transfer;
     private DcMotorEx shooter;
 
@@ -79,13 +81,10 @@ public class TeleOpTest extends OpMode {
 
         //optionally you can have it default to intake always on by putting that in the else case
         if (gamepad1.a) {
-            topIntake.setPower(0.9);
             intake.setPower(0.9);
         } else if (gamepad1.y) {
-            topIntake.setPower(-0.9);
             intake.setPower(-0.9);
         } else {
-            topIntake.setPower(0);
             intake.setPower(0);
         }
     }
